@@ -1,12 +1,12 @@
 import { FC } from "react";
 import Users from "./Users";
+import Groups from "./Groups";
 
-interface MainDashboardProps {}
-
-const MainDashboard: FC<MainDashboardProps> = () => {
+const MainDashboard: FC = () => {
    return (
-      <div className="min-h-full flex-1 bg-gradient-to-r from-indigo-800 via-pink-500 to-pink-600 flex flex-col ">
+      <div className="h-screen flex-1 bg-gradient-to-r from-indigo-800 via-pink-500 to-pink-600 flex overflow-hidden">
          <Users />
+         <Groups />
       </div>
    );
 };
