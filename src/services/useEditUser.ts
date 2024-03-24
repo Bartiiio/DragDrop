@@ -25,7 +25,7 @@ export function useUpdateUserData() {
          }
       },
       onSuccess: () => {
-         toast.success("User group successfully changed");
+         toast.success("User successfully changed");
          queryClient.invalidateQueries({ queryKey: ["Users"] });
       },
    });

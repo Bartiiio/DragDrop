@@ -6,9 +6,19 @@ interface UserProps {
 }
 
 const User: FC<UserProps> = ({ userData }) => {
+   const handleDragStart = (
+      e: React.DragEvent<HTMLDivElement>,
+      userData: UserTypes
+   ) => {
+      e.dataTransfer.setData("userData", JSON.stringify(userData));
+   };
    return (
       <div className="flex flex-wrap mt-8 items-center justify-center text-black font-bold">
-         <div className="h-40 w-32 bg-slate-100 my-4 mx-2 rounded-lg flex flex-col justify-between items-center cursor-pointer">
+         <div
+            draggable
+            onDragStart={(e) => handleDragStart(e, userData)}
+            className="h-40 w-32 bg-slate-100 my-4 mx-2 rounded-lg flex flex-col justify-between items-center cursor-pointer"
+         >
             <div className="rounded-full overflow-hidden mt-4 w-20 h-20">
                <img
                   src={userData?.photo}
